@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 
+// Adding country names to their respective ISO 3166-1 alpha-2 codes
+const countryCodes = {
+  'Nigeria': 'NG',
+  'Australia': 'AU',
+  'USA': 'US',
+  'South Africa': 'ZA',
+};
+
 const Table = ({ columns, data }) => {
   const [searchItem, setSearchItem] = useState('');
   const [tableData, setTableData] = useState(data);
@@ -57,6 +65,15 @@ const Table = ({ columns, data }) => {
                       />
                       <span className="slider"></span>
                     </label>
+                  ) : column.accessor === 'plugin_location' ? (
+                    <>
+                      <img
+                        src={`https://flagcdn.com/16x12/${countryCodes[row[column.accessor]].toLowerCase()}.png`}
+                        alt={`${row[column.accessor]} flag`}
+                        style={{ marginRight: '8px' }}
+                      />
+                      {row[column.accessor]}
+                    </>
                   ) : (
                     row[column.accessor]
                   )}
