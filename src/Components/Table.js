@@ -34,7 +34,6 @@ const Table = ({ columns, data }) => {
         placeholder="Search..."
         value={searchItem}
         onChange={handleSearch}
-        style={{ padding: '8px', marginBottom: '20px', width: '100%', boxSizing: 'border-box' }}
       />
       <table>
         <thead>
