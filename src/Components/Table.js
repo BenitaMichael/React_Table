@@ -49,11 +49,14 @@ const Table = ({ columns, data }) => {
               {columns.map((column) => (
                 <td key={column.accessor}>
                   {column.accessor === 'plugin_stats' ? (
-                    <input
-                      type="checkbox"
-                      checked={row[column.accessor] === 'active'}
-                      onChange={() => handleToggle(row.plugID)}
-                    />
+                    <label className="switch">
+                      <input
+                        type="checkbox"
+                        checked={row[column.accessor] === 'active'}
+                        onChange={() => handleToggle(row.plugID)}
+                      />
+                      <span className="slider"></span>
+                    </label>
                   ) : (
                     row[column.accessor]
                   )}
