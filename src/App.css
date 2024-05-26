@@ -63,6 +63,11 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+input[type="checkbox"] {
+  width: 15px;
+  height:15px;
+}
+
 
 
 /***** FOOTER COMPONENET *****/

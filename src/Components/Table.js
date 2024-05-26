@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 
 const Table = ({ columns, data }) => {
   const [searchItem, setSearchItem] = useState('');
+  const [tableData, setTableData] = useState(data);
 
   const handleSearch = (event) => {
     setSearchItem(event.target.value);
   };
 
-  const filteredItem = data.filter((row) =>
+  const handleToggle = (id) => {
+    const updatedData = tableData.map((row) =>
+      row.plugID === id
+        ? { ...row, plugin_stats: row.plugin_stats === 'active' ? 'disabled' : 'active' }
+        : row
+    );
+    setTableData(updatedData);
+  };
+
+  const filteredItem = tableData.filter((row) =>
     columns.some(
       (column) =>
         row[column.accessor]
@@ -24,7 +34,7 @@ const Table = ({ columns, data }) => {
         placeholder="Search..."
         value={searchItem}
         onChange={handleSearch}
-        style={{ padding: '8px', width: '50%'}}
+        style={{ padding: '8px', marginBottom: '20px', width: '100%', boxSizing: 'border-box' }}
       />
       <table>
         <thead>
@@ -38,7 +48,17 @@ const Table = ({ columns, data }) => {
           {filteredItem.map((row) => (
             <tr key={row.plugID}>
               {columns.map((column) => (
-                <td key={column.accessor}>{row[column.accessor]}</td>
+                <td key={column.accessor}>
+                  {column.accessor === 'plugin_stats' ? (
+                    <input
+                      type="checkbox"
+                      checked={row[column.accessor] === 'active'}
+                      onChange={() => handleToggle(row.plugID)}
+                    />
+                  ) : (
+                    row[column.accessor]
+                  )}
+                </td>
               ))}
             </tr>
           ))}

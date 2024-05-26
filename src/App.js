@@ -1,10 +1,10 @@
+import React from 'react';
 import './App.css';
-
 
 // COMPONENTS
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import Table from './Components/Table'
+import Table from './Components/Table';
 
 function App() {
   const data = [
@@ -18,7 +18,7 @@ function App() {
     {
       "plugID": "wusolk2",
       "plugin_name": "Flashscore",
-      "plugin_location": "Austraila",
+      "plugin_location": "Australia",
       "plugin_stats": "disabled",
       "plugin_rate": "20%"
     },
@@ -59,7 +59,6 @@ function App() {
     { header: 'Status', accessor: 'plugin_stats' },
     { header: 'Rate', accessor: 'plugin_rate' },
   ];
-
 
   return (
     <>
