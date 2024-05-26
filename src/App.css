@@ -56,7 +56,12 @@ table tr:nth-child(even) {
   background-color: #ffffff;
 }
 
-
+input[type="text"] {
+  padding: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 
 
