@@ -2,16 +2,13 @@ import './App.css';
 
 
 // COMPONENTS
-import AppNavbar from './Components/AppNavbar';
-import AppFooter from './Components/AppFooter';
-
-
+import Header from './Components/Header';
 
 
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <Header />
     </>
   );
 }
